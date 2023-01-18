@@ -4,14 +4,8 @@
 * ID - Serial
 * Nome - TEXT
 * Created at
-
-## Tabela **Preço**
-* ID - Id do produto (Foreign Keys da tabela de produtos)
+* Estoque - INT
 * Preço - FLOAT
-
-## Tabela **Estoque**
-* ID - Id do produto (Foreign Keys da tabela de produtos)
-* Estoque - INTEGER
 
 ## Tabela **Vendas**
 * Id - Serial
