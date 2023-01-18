@@ -18,4 +18,3 @@ class SaleSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Sales
         fields = '__all__'
-        # fields = ['product', 'payment', 'quantity_sold']
