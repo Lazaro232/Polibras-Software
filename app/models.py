@@ -13,8 +13,10 @@ class Payments(models.Model):
 
 
 class Sales(models.Model):
-    product = models.ForeignKey(Products, on_delete=models.PROTECT)
-    payment = models.ForeignKey(Payments, on_delete=models.PROTECT)
-    quantity_sold = models.IntegerField()
+    product = models.ForeignKey(
+        Products, on_delete=models.SET_NULL, null=True, blank=True)
+    payment = models.ForeignKey(
+        Payments, on_delete=models.SET_NULL, null=True, blank=True)
+    quantity_sold = models.IntegerField(null=True, blank=True)
     amount_sold = models.FloatField(default=0.0)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
