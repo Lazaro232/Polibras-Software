@@ -6,9 +6,6 @@
 
 # Preciso fazer
 
-## PostgreSQL
-* Trocar de SQLite para PostgreSQL
-
 ## Docker
 * Dockerizar a aplicação
 
