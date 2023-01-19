@@ -1,36 +1,19 @@
-# Tabelas - PostgreSQL
+# Autenticação
 
-## Tabela **Produtos**
-* ID - Serial
-* Nome - TEXT
-* Created at
-* Estoque - INT
-* Preço - FLOAT
+## Gerar usuário capaz de gerar um token
 
-## Tabela **Vendas**
-* Id - Serial
-* Produtos - Lista com os ids dos produtos vendidos
-* Pagamento (Foreign Keys da tabela de métodos de pagamento. DEVE SER O NOME, NÃO O ID)
+        python manage.py createsuperuser
 
-## Tabela **Métodos de Pagamento**
-* Id - Serial
-* Nome - TEXT
+# Preciso fazer
 
-# Tarefas
+## PostgreSQL
+* Trocar de SQLite para PostgreSQL
 
-## Cadastro de produtos
-Será um INSERT na tabela de Produtos. Deve-se passar:
+## Docker
+* Dockerizar a aplicação
 
-* Nome
-* Estoque inicial (isso deve criar uma linha na tabela de Estoque)
-* Preço inicial (isso deve criar uma linha na tabela de Preço)
+## Testes Unitários
+* Implementar testes unitários
 
-## Lançamento de vendas
-
-* Cadastrar a venda na tabela de Vendas passando os **produtos** e a **forma de pagamento** (pode ser por ID mesmo)
-* Atualizar estoque - Reduzir estoque do produto que foi vendido
-
-# Restrições
-
-* Não deve ser permitido registrar a venda de um produto não registrado ou sem estoque
-* Atualizar o preço do produto não deve influenciar nas vendas já realizadas
+## Documentar
+* Escrever o README.md explicando como rodar e o que eu usei no projeto
