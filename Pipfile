@@ -9,6 +9,7 @@ mypy = "*"
 flake8 = "*"
 djangorestframework = "*"
 django = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
