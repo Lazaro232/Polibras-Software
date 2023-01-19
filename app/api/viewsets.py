@@ -1,23 +1,26 @@
 from app import models
 from app.api import serializers
-from rest_framework import status
-from rest_framework import viewsets
+from rest_framework import status, viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.db.models import Sum
 from django.db.models.query import QuerySet
 
 
 class ProductViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
     queryset = models.Products.objects.all()
     serializer_class = serializers.ProductSerializer
 
 
 class PaymentViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
     queryset = models.Payments.objects.all()
     serializer_class = serializers.PaymentSerializer
 
 
 class SaleViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
     queryset = models.Sales.objects.all()
     serializer_class = serializers.SaleSerializer
 
