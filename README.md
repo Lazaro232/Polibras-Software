@@ -17,3 +17,6 @@
 
 ## Documentar
 * Escrever o README.md explicando como rodar e o que eu usei no projeto
+
+## Postman
+* Exportar a collection do Postman
