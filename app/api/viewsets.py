@@ -3,6 +3,8 @@ from app.api import serializers
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
+from django.db.models import Sum
+from django.db.models.query import QuerySet
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -18,6 +20,34 @@ class PaymentViewSet(viewsets.ModelViewSet):
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = models.Sales.objects.all()
     serializer_class = serializers.SaleSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        # No date passed
+        if not queryset:
+            queryset = self.queryset
+            if isinstance(queryset, QuerySet):
+                # Ensure queryset is re-evaluated on each request.
+                queryset = queryset.all()
+                serializer = self.get_serializer(queryset, many=True)
+                return Response(serializer.data)
+
+        return Response(queryset)
+
+    def get_queryset(self):
+        date = self.request.query_params.get('date', None)
+        if date:
+            # Group and order by date to sum
+            queryset = models.Sales.objects.values(
+                'date').order_by('date').annotate(
+                    total_amount_sold=Sum('amount_sold')).filter(date=date)
+            # No sales detected
+            if not queryset:
+                queryset = [{"date": date, "total_amount_sold": 0.0}]
+
+            return queryset
+
+        return []
 
     def create(self, request, *args, **kwargs):
         data = request.data
