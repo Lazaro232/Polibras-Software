@@ -24,7 +24,7 @@ schema_view = get_schema_view(
 # Urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('token/', TokenObtainPairView.as_view()),
+    path('token/', TokenObtainPairView.as_view(), name='token_auth'),
     path('token/refresh/', TokenRefreshView.as_view()),
     path('swagger/schema/', schema_view.with_ui('swagger',
          cache_timeout=0), name="swagger-schema"),
