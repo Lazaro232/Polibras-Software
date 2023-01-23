@@ -64,3 +64,5 @@ Para criar um método de pagamento, é preciso realizar um *POST* para o *endpoi
 Essa tebela é responsável por armazenar as informações das vendas realizadas pelo mercado, tais como: **Quantidade vendida**, **total vendido (R$)**, **data da venda**, **método de pagamento** e **produto vendido**.
 
 Para criar uma venda, é preciso realizar um *POST* para o *endpoint* **.../sales/**, passando *quantity_sold*, *product* e *payment* no corpo da requisição. Para listar todos as vendas, deve-se realizar um *GET* para o mesmo *endpoint*.
+
+Como a coluna do ID do produto vendido é uma *Foreign Key* da tabela de produtos, não é possível criar vendas de produtos que não existem. Além disso, a API só realiza vendas de produtos que possuam estoque suficiente.
