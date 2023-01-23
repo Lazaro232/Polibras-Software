@@ -4,6 +4,8 @@ Essa API é responsável pelo gerenciamento de um pequeno mercado. Através dela
 
 Para acessar o ***Swagger*** da API é preciso acessar o *endpoint* **.../swagger/schema/**
 
+Collection do **Postman**: [Polibras-Software.postman_collection.json](Polibras-Software.postman_collection.json)
+
 # Configurações Iniciais
 
 A API foi construída utilizando o Django Rest Framework (**DRF**). Além disso, utiliza-se a biblioteca **pipenv** para gerenciar o ambiente virtual em que o projeto está contido.
